@@ -61,11 +61,11 @@ export const Login = () => {
                     <div className="w-full flex flex-col items-center gap-2">
                     <div onClick={googleLogin} className="google w-[80%] lg:w-[44%] h-12 border border-[#878787] rounded-full flex justify-around items-center cursor-pointer hover:border-white">
                             <img src="https://accounts.scdn.co/sso/images/new-google-icon.72fd940a229bc94cf9484a3320b3dccb.svg" alt="" />
-                            <p className='text-base font-semibold mr-7'>Sign up with Google</p>
+                            <p className='text-base font-semibold mr-7'>Log in with Google</p>
                         </div>
                         <div onClick={facebookLogin} className="facebook w-[80%] lg:w-[44%] h-12 border border-[#878787] rounded-full flex justify-around items-center cursor-pointer hover:border-white">
                             <img src="https://accounts.scdn.co/sso/images/new-facebook-icon.eae8e1b6256f7ccf01cf81913254e70b.svg" alt="" />
-                            <p className='text-base font-semibold mr-7'>Sign up with Facebook</p>
+                            <p className='text-base font-semibold mr-7'>Log in with Facebook</p>
                         </div>
                         <div onClick={appleLogin} className="apple w-[80%] lg:w-[44%] h-12 border border-[#878787] rounded-full flex justify-around items-center cursor-pointer hover:border-white">
                             <img src="https://accounts.scdn.co/sso/images/new-apple-icon.e356139ea90852da2e60f1ff738f3cbb.svg" alt="" />
