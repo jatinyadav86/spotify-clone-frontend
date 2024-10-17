@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import songContext from './context'
 const backenduri = import.meta.env.VITE_BACKEND_URI;
 
@@ -67,18 +67,23 @@ const SongState = (props) => {
 
 
   const getGenres = async () => {
+    setLoading(true)
     let response = await fetch(`${backenduri}/api/appdata/fetchdata`, { method: "Get" });
     let genre = await response.json();
     setAllGenre(genre);
+    setLoading(false)
   }
 
   const getSongs = async (name) => {
+    setLoading(true)
     let response = await fetch(`${backenduri}/api/songsdata/fetchdata/${name}`, { method: "Get" });
     let songs = await response.json();
     setAllSongs(songs[0]);
+    setLoading(false)
   }
 
   const getUserDetail = async () => {
+    setLoading(true)
     const token = localStorage.getItem('token')
     let response = await fetch(`${backenduri}/api/auth/getuser`, {
       method: "Get",
@@ -87,12 +92,13 @@ const SongState = (props) => {
         "auth-token": token
       }
     })
-
     let user = await response.json();
     setCurrUser(user)
+    setLoading(false)
   }
 
   const getPlaylistsDetail = async () => {
+    setLoading(true)
     const token = localStorage.getItem('token')
     let response = await fetch(`${backenduri}/api/data/fetchdata`, {
       method: "Get",
@@ -152,6 +158,7 @@ const SongState = (props) => {
         index: 0
       })
     }
+    setLoading(false)
   }
 
   function truncateLine(line, number) {

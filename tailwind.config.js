@@ -6,7 +6,18 @@ module.exports = withMT({
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        movingDot: {
+          '0%, 100%': { transform: 'scale(0.2)', backgroundColor:  "#bd0036"},
+          '40%': { transform: 'scale(1)', backgroundColor:  "#f25330" },
+          '50%': { transform: 'scale(1)', backgroundColor:  "#f2b900" },
+        }
+      },
+      animation: {
+        movingDot: 'movingDot 1.5s ease-in-out infinite',
+      }
+    },
   },
   plugins: [
     require('tailwind-scrollbar'),

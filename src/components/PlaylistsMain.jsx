@@ -21,13 +21,12 @@ export const PlaylistsMain = () => {
     const [addToPlaylistSong, setAddToPlaylistSong] = useState({})
 
     const { name } = useParams()
-    const { login, setLoading, setShouldPlay, allGenre, getSongs, allSongs, setAllSongs, setCurrSongs, restriction, childRef, truncateLine, restrictionColor, audio, songPlaying, setSongPlaying, history, setHistory, addHistory, liked, addLikedSong, addPlaylist1, playlist1, playlist2, setPlaylist2, currUser, getPlaylistsDetail } = useContext(songContext)
+    const { login, setShouldPlay, allGenre, getSongs, allSongs, setAllSongs, setCurrSongs, restriction, childRef, truncateLine, restrictionColor, audio, songPlaying, setSongPlaying, history, setHistory, addHistory, liked, addLikedSong, addPlaylist1, playlist1, playlist2, setPlaylist2, currUser, getPlaylistsDetail } = useContext(songContext)
 
     const navigate = useNavigate()
 
     useEffect(() => {
         const arr = location.pathname.split("/")
-        setLoading(true)
         if (arr.includes("album")) {
             if (name != "Liked Songs") {
                 getSongs(name);
@@ -37,9 +36,6 @@ export const PlaylistsMain = () => {
                 getPlaylistsDetail();
             }
         }
-        setTimeout(() => {
-            setLoading(false)
-        }, 1500);
     }, [name])
 
     useEffect(() => {

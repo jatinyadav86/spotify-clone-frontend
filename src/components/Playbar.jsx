@@ -111,7 +111,7 @@ const Playbar = () => {
                                 {liked.filter(value => value.songName == songPlaying.song.songName).length > 0 ?
                                     <img onClick={(e) => { e.stopPropagation(); addLikedSong(songPlaying.song) }} className='size-7 mx-5' src="https://res.cloudinary.com/doswveiik/image/upload/v1726669526/heart-green_a4rwbz.png" alt="" />
                                     :
-                                    <img onClick={(e) => { e.stopPropagation(); addLikedSong(songPlaying.song) }} className='size-7 mx-5' src="https://res.cloudinary.com/doswveiik/image/upload/v1726669454/heart_ue1t0a.png" alt="" />
+                                    <img onClick={(e) => { e.stopPropagation(); addLikedSong(songPlaying.song) }} className='size-7 mx-5' src="https://res.cloudinary.com/doswveiik/image/upload/v1729149943/icons8-heart-48_g3stvm.png" alt="" />
                                 }
                                 {audio.current && audio.current.paused ?
                                     <img onClick={(e) => { e.stopPropagation(); audio.current.play() }} className='size-7' src="https://res.cloudinary.com/doswveiik/image/upload/v1726669854/play_zptvam.png" alt="" />

@@ -10,23 +10,19 @@ import Loading from './Loading';
 import Playbar from './Playbar';
 
 export const Home = () => {
-    
+
     const location = useLocation();
     let navigate = useNavigate();
 
-    const { getGenres, login, setLogin, getUserDetail, shouldPlay, setShouldPlay, setLoading, audio, songPlaying, playlistRef, getPlaylistsDetail } = useContext(songContext)
+    const { getGenres, login, setLogin, getUserDetail, shouldPlay, setShouldPlay, audio, songPlaying, playlistRef, getPlaylistsDetail } = useContext(songContext)
 
     useEffect(() => {
-        setLoading(true)
         getGenres();
         if (localStorage.getItem("token")) {
             getUserDetail()
             getPlaylistsDetail()
             setLogin(true)
         }
-        setTimeout(() => {
-            setLoading(false)
-        }, 1500);
     }, [])
 
     useEffect(() => {
@@ -37,22 +33,20 @@ export const Home = () => {
     }, [songPlaying])
 
     useEffect(() => {
-        if(!login){
-            setLoading(true)
+        if (!login) {
             const queryParams = new URLSearchParams(location.search);
             const token = queryParams.get('token');
-    
+
             if (token) {
                 // Store the token in local storage
                 localStorage.setItem('token', token);
                 setLogin(true)
-    
+
                 // Redirect the user to the home page
                 navigate('/');
+                getUserDetail()
+                getPlaylistsDetail()
             }
-            setTimeout(() => {
-                setLoading(false)
-            }, 1500);
         }
     }, [location]);
 
@@ -91,7 +85,7 @@ export const Home = () => {
                         <Outlet />
                     </div>
                 </div>
-                <Playbar/>
+                <Playbar />
             </div>
             <audio ref={audio} src={songPlaying.song.url} preload='auto'></audio>
         </>
